@@ -33,4 +33,14 @@ class VandelayTest < Test::Unit::TestCase
     assert last_response.ok?
     assert_equal data.to_h.to_json, last_response.body
   end
+
+  def test_single_patient_returns_404
+    get "/patients/patient/", "CONTENT_TYPE" => "application/json"
+    assert_equal last_response.status, 404
+  end
+
+  def test_single_patient_word_returns_404
+    get "/patients/patient/friday", "CONTENT_TYPE" => "application/json"
+    assert_equal last_response.status, 404
+  end
 end

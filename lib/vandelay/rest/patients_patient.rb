@@ -10,9 +10,13 @@ module Vandelay
 
       def self.registered(app)
         app.get '/patients/patient/:patient_id' do
-          patient_id = params[:patient_id]
+          patient_id = params[:patient_id].to_i
           result = Vandelay::REST::Patients.patients_srvc.retrieve_one(patient_id)
-          json(result.to_h)
+          if result
+            json(result.to_h)
+          else
+            status 404
+          end
         end
       end
     end
