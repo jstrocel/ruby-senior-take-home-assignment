@@ -29,7 +29,7 @@ class VandelayTest < Test::Unit::TestCase
   def test_it_returns_existing_patient
     patient_id = 1
     data = Vandelay::Models::Patient.with_id(patient_id)
-    get "/patients/#{patient_id}", "CONTENT_TYPE" => "application/json"
+    get "/patients/patient/#{patient_id}", "CONTENT_TYPE" => "application/json"
     assert last_response.ok?
     assert_equal data.to_h.to_json, last_response.body
   end
