@@ -8,3 +8,6 @@ gem 'sinatra-contrib'
 gem 'puma'
 gem 'rackup'
 gem 'irb'
+gem 'test-unit'
+gem 'rack-test'
+
