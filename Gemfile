@@ -10,4 +10,4 @@ gem 'rackup'
 gem 'irb'
 gem 'test-unit'
 gem 'rack-test'
-
+gem 'rest-client'
